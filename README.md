@@ -5,6 +5,7 @@
 https://aws.amazon.com/documentation/sns/
 
 #Prerequisites
-*set up aws sns account
-*install aws-cli on your computer
-*set access key and secret key 
+  * set up aws sns account
+  * install aws-cli on your computer
+    > https://docs.aws.amazon.com/cli/latest/userguide/awscli-install-windows.html
+  * set access key and secret key 
