@@ -11,9 +11,9 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 
-
-@Configuration
-@PropertySource("classpath:application.properties")
+//
+//@Configuration
+//@PropertySource("classpath:application.properties")
 public class AWSAppConfig {
 
     private static final Integer TEMPORARY_CREDENTIALS_DURATION_DEFAULT = 7200;
@@ -21,7 +21,7 @@ public class AWSAppConfig {
     @Value("${aws.temporary.credentials.validity.duration}")
     String credentialsValidityDuration;
 
-    @Value("${aws.sns.topic.demo.ARN}")
+    @Value("${aws.sns.topic.ARN}")
     String snsTopicDemoARN;
 
     @Bean(name = "snsTopicDemoARN")

@@ -1,16 +1,23 @@
 package com.anuradha.aws.sns.demo1.model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
+@Entity
 public class Notification {
-
-    private
-    String subject;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long not_id;
+    private String subject;
     private String body;
 
     public Notification() {
     }
 
-    public Notification(String subject, String body) {
+    public Notification(int not_id, String subject, String body) {
+        this.setNot_id(not_id);
         this.setSubject(subject);
         this.setBody(body);
     }
@@ -18,9 +25,18 @@ public class Notification {
     @Override
     public String toString() {
         return "Notification{" +
-                "subject='" + getSubject() + '\'' +
+                "not_id=" + getNot_id() +
+                ", subject='" + getSubject() + '\'' +
                 ", body='" + getBody() + '\'' +
                 '}';
+    }
+
+    public long getNot_id() {
+        return not_id;
+    }
+
+    public void setNot_id(long not_id) {
+        this.not_id = not_id;
     }
 
     public String getSubject() {

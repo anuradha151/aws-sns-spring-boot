@@ -1,29 +1,40 @@
 package com.anuradha.aws.sns.demo1.controller;
 
 import com.anuradha.aws.sns.demo1.model.Notification;
-import com.anuradha.aws.sns.demo1.service.PublisherService;
+import com.anuradha.aws.sns.demo1.service.impl.SNSServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/sns/notification")
 public class NotificationController {
-
     @Autowired
-    private PublisherService publisherService;
+    private SNSServiceImpl snsService;
 
     @PostMapping("/publish")
-    public boolean publishNotification(@RequestBody Notification notification) {
+    public boolean publishMessage(@RequestBody Notification notification) {
 
-        try {
-            publisherService.publish(notification.getSubject(), notification.getBody());
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        return false;
+    }
+
+    @GetMapping("/create")
+    public boolean createSNSClient() {
+        snsService.createSNSClient();
         return true;
+
+    }
+
+    @GetMapping("/subscribe")
+    public boolean subscribeTopic() {
+        snsService.subscribeToATopic();
+        return true;
+
+    }
+    @GetMapping("/deleteTopic")
+    public boolean deleteTopic() {
+        snsService.deleteTopic();
+        return true;
+
     }
 
 
